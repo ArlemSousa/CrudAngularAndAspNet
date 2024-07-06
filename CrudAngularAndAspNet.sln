@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudAngularAndAspNet.Server", "CrudAngularAndAspNet.Server\CrudAngularAndAspNet.Server.csproj", "{30F12816-08BE-47A2-9708-450D414034E6}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "crudangularandaspnet.client", "crudangularandaspnet.client\crudangularandaspnet.client.esproj", "{D4AA40C3-4E25-4B40-85F4-55074CE83179}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30F12816-08BE-47A2-9708-450D414034E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30F12816-08BE-47A2-9708-450D414034E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30F12816-08BE-47A2-9708-450D414034E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30F12816-08BE-47A2-9708-450D414034E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4AA40C3-4E25-4B40-85F4-55074CE83179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4AA40C3-4E25-4B40-85F4-55074CE83179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4AA40C3-4E25-4B40-85F4-55074CE83179}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D4AA40C3-4E25-4B40-85F4-55074CE83179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4AA40C3-4E25-4B40-85F4-55074CE83179}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4AA40C3-4E25-4B40-85F4-55074CE83179}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05ACCA99-585E-457A-821C-D5571C33A527}
+	EndGlobalSection
+EndGlobal
