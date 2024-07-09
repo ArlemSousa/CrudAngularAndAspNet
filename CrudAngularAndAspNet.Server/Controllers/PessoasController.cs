@@ -1,5 +1,4 @@
-﻿using CrudAngularAndAspNet.Server.Data;
-using CrudAngularAndAspNet.Server.Models;
+﻿using CrudAngularAndAspNet.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,14 +15,15 @@ namespace CrudAngularAndAspNet.Server.Controllers
             _contexto = contexto;
         }
 
-        // GET: api/pessoas
+        //pegar todos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Pessoa>>> PegarTodosAsync()
         {
             return await _contexto.pessoas.ToListAsync();
         }
 
-        // GET: api/pessoas/5
+
+        //pegar por id
         [HttpGet("{id}")]
         public async Task<ActionResult<Pessoa>> PegarPorIdAsync(int id)
         {
@@ -37,7 +37,7 @@ namespace CrudAngularAndAspNet.Server.Controllers
             return pessoa;
         }
 
-        // PUT: api/pessoas/5
+        //update 
         [HttpPut("{id}")]
         public async Task<IActionResult> AtualizarAsync(int id, Pessoa pessoa)
         {
@@ -46,7 +46,6 @@ namespace CrudAngularAndAspNet.Server.Controllers
                 return BadRequest();
             }
 
-            //_contexto.pessoas.Update(pessoa);
             _contexto.Entry(pessoa).State = EntityState.Modified;
 
             try
@@ -68,7 +67,7 @@ namespace CrudAngularAndAspNet.Server.Controllers
             return NoContent();
         }
 
-        // POST: api/pessoas
+        //adicionar pessoa
         [HttpPost]
         public async Task<ActionResult<Pessoa>> CriarAsync(Pessoa pessoa)
         {
@@ -78,7 +77,7 @@ namespace CrudAngularAndAspNet.Server.Controllers
             return CreatedAtAction("PegarPorId", new { id = pessoa.PessoaId }, pessoa);
         }
 
-        // DELETE: api/pessoas/5
+        //deletar pessoa
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletarAsync(int id)
         {

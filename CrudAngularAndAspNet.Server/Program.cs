@@ -1,5 +1,7 @@
+using CrudAngularAndAspNet.Server;
 using CrudAngularAndAspNet.Server.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,5 +36,19 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapFallbackToFile("/index.html");
+
+//configuração de cors
+//necessário para a integração entre o angular e o .net
+//optei por nao permitir de qualquer origem, somente da aplicacao angular
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(ApiConfiguration.CorsPolicyName,
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:4200") // Substitua pelo endereço da sua aplicação Angular
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
 
 app.Run();
