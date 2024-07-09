@@ -7,10 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-
 // Configura a conexão com o banco de dados
 builder.Services.AddDbContext<Contexto>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -19,7 +18,6 @@ builder.Services.AddSwaggerGen();
 
 //configuração de cors
 //necessário para a integração entre o angular e o .net
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAllOrigins", builder =>
@@ -31,6 +29,9 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+// Mova app.UseCors para cá:
+app.UseCors("AllowAllOrigins");
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
