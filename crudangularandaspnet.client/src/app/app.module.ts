@@ -6,11 +6,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PessoasService } from './pessoas.service';
+import { PessoasComponent } from './Components/pessoas/pessoas.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PessoasComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +22,7 @@ import { PessoasService } from './pessoas.service';
     AppRoutingModule,
 
   ],
-  providers: [PessoasService],
+  providers: [HttpClientModule, PessoasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
