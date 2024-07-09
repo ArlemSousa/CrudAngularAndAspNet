@@ -30,13 +30,11 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Mova app.UseCors para cá:
 app.UseCors("AllowAllOrigins");
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
