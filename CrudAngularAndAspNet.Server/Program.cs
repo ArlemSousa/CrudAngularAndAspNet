@@ -17,6 +17,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//configuração de cors
+//necessário para a integração entre o angular e o .net
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
 app.UseDefaultFiles();
@@ -36,19 +49,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapFallbackToFile("/index.html");
-
-//configuração de cors
-//necessário para a integração entre o angular e o .net
-//optei por nao permitir de qualquer origem, somente da aplicacao angular
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(ApiConfiguration.CorsPolicyName,
-        builder =>
-        {
-            builder.WithOrigins("http://localhost:4200") // Substitua pelo endereço da sua aplicação Angular
-                .AllowAnyHeader()
-                .AllowAnyMethod();
-        });
-});
 
 app.Run();
